@@ -1,0 +1,21 @@
+from fastapi import FastAPI
+from routers.jornada import ujornada
+from routers.jornada import tjornadas
+from routers.jornada import ttablageneral
+from routers.jornada import tproximajornada
+from routers.jornada import tjugadores
+
+from config.openapi import tags_metadata
+
+app = FastAPI(
+    title="Soccer API",
+    description="a REST API Soccer",
+    version="0.0.1",
+    openapi_tags=tags_metadata,
+)
+
+app.include_router(ujornada)
+app.include_router(tjornadas)
+app.include_router(ttablageneral)
+app.include_router(tproximajornada)
+app.include_router(tjugadores)
